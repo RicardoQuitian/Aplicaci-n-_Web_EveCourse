@@ -1,0 +1,83 @@
+# Proyecto con Supabase
+
+Este proyecto está conectado a una base de datos en **Supabase**, que contiene las tablas necesarias para la práctica grupal.
+
+# Credenciales de conexión
+
+Para conectarse a la base de datos, se debe usar el SDK de Supabase con las siguientes credenciales:
+
+URL del proyecto: https://TU-PROJECT-URL.supabase.co  
+Anon Key (clave pública): TU-ANON-KEY  
+
+Nota importante:  
+- La **anon key** es pública y se puede usar desde el cliente (navegador o frontend).  
+- La **service key** (clave privada) NO debe compartirse ni subirse a GitHub.
+
+anon key: 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFjemJ2ZXFieHp3YXlnYWJ1ZXp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg0Nzk3NzAsImV4cCI6MjA3NDA1NTc3MH0.xNxsTIdnKQ2CxsYSvJH9ywE9ESAKeLaIlqe0YJsDwFs
+
+service key: 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFjemJ2ZXFieHp3YXlnYWJ1ZXp4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODQ3OTc3MCwiZXhwIjoyMDc0MDU1NzcwfQ.PH9nCbwL6OwAsg_xyLanw4xWgSS23wM_MAdZSEIBQpI
+
+
+Rol
+
+id_rol (PK, serial)
+
+nombre (varchar 100)
+
+descripcion (varchar 255)
+
+
+Usuario
+
+id_usuario (PK, serial)
+
+nombre_usuario (varchar 100)
+
+email (varchar 100, único)
+
+contraseña (varchar 255)
+
+id_servicio (FK -> Servicio.id_servicio)
+
+id_rol (FK -> Rol.id_rol)
+
+
+Categoria
+
+id_categoria (PK, serial)
+
+nombre (varchar 100)
+
+descripcion (varchar 255)
+
+
+Promocion
+
+id_promocion (PK, serial)
+
+nombre (varchar 100)
+
+estado (boolean)
+
+
+Servicio
+
+id_servicio (PK, serial)
+
+nombre_curso (varchar 150)
+
+descripcion (text)
+
+precio (decimal)
+
+cantidad (int)
+
+imagen (varchar 255 – URL en Supabase Storage)
+
+id_promocion (FK -> Promocion.id_promocion)
+
+id_categoria (FK -> Categoria.id_categoria)
+
+id_usuario (FK -> Usuario.id_usuario)

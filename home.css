@@ -1,0 +1,255 @@
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  object-fit: cover;
+}
+
+.nav-pill {
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.nav-pill.active, 
+.nav-pill:hover {
+  background-color: #e6f0ff;
+  color: #0d6efd !important;
+  font-weight: 600;
+}
+
+.hero-slide {
+  position: relative;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 40px;
+  max-width: 600px;
+  margin-left: 60px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+}
+
+.carousel {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.carousel-control-prev {
+  left: 15px;
+}
+
+.carousel-control-next {
+  right: 15px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+  background-size: 60% 60%;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.benefits-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.benefit-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.benefit-card i {
+  color: #0d6efd;
+}
+
+.benefit-card .card-title {
+  color: #212529;
+}
+
+.benefit-card .card-text {
+  color: #6c757d;
+}
+
+.text-warning {
+  color: #ffc107 !important;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+.btn-outline-primary {
+  color: #0d6efd;
+  border-color: #0d6efd;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: white;
+}
+
+.icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  font-size: 24px;
+}
+
+.icon-blue {
+  background-color: #e6f0ff; 
+  color: #3b82f6;           
+}
+
+.icon-green {
+  background-color: #e6f9f0;
+  color: #22c55e;
+}
+
+.icon-yellow {
+  background-color: #fff9e6;
+  color: #f59e0b;
+}
+
+.icon-purple {
+  background-color: #f3e8ff;
+  color: #8b5cf6;
+}
+
+.icon-red {
+  background-color: #ffecec;
+  color: #ef4444;
+}
+
+.icon-indigo {
+  background-color: #eef2ff;
+  color: #6366f1;
+}
+
+.btn-login {
+  border: 1px solid #ddd;       
+  border-radius: 12px;         
+  background-color: #fff;       
+  color: #000;                  
+  padding: 8px 20px;            
+  font-weight: 500;           
+  display: inline-flex;         
+  align-items: center;          
+  transition: all 0.3s ease;    
+}
+
+.btn-login:hover {
+  background-color: #f5f5f5;    
+  border-color: #bbb;           
+}
+
+footer a:hover {
+  color: #adb5bd !important;
+  transition: color 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-item .row {
+    flex-direction: column;
+  }
+  
+  .carousel-item img {
+    height: 300px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .hero-slide {
+    height: 400px;
+  }
+  
+  .hero-overlay {
+    padding: 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-slide {
+    height: 350px;
+    border-radius: 12px;
+  }
+  
+  .hero-overlay {
+    padding: 15px;
+  }
+  
+  .benefit-card {
+    margin-bottom: 1rem;
+  }
+}

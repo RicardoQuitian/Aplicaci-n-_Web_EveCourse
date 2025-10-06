@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EveCourse - Plataforma de Cursos Online</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Corrección: ruta relativa al archivo local -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+                <div class="logo-icon bg-primary text-white d-flex align-items-center justify-content-center rounded-circle me-2">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <span class="text-dark">EveCourse</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill active" href="cursos.html">Cursos</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-shopping-cart fa-lg"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-login" href="login.html">
+                            <i class="fas fa-user me-2"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Explora Nuestros Cursos</h2>
+            <p class="text-muted">Descubre conocimientos que transformarán tu carrera profesional</p>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <input type="text" class="form-control" placeholder="Buscar cursos, instructores...">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h5 class="fw-bold mb-3">Categorías</h5>
+                <div class="list-group shadow-sm rounded-3">
+                    <a href="#" class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-grid"></i> Todos</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-code-slash"></i> Desarrollo Web</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-bar-chart"></i> Marketing Digital</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-brush"></i> Diseño Gráfico</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-briefcase"></i> Negocios</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-terminal"></i> Programación</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-camera"></i> Fotografía</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-translate"></i> Idiomas</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="row g-4">
+                    <!-- Tarjeta de curso 1 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="position-relative">
+                                <img src="https://picsum.photos/400/250?random=1" class="card-img-top" alt="Curso 1">
+                                <div class="position-absolute top-0 start-0 m-2">
+                                    <span class="badge bg-danger">-38%</span>
+                                    <span class="badge bg-warning text-dark">Destacado</span>
+                                    <span class="badge bg-primary">Desarrollo Web</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Desarrollo Web Completo con React y Node.js</h5>
+                                <p class="card-text text-muted">Por María González</p>
+                                <p class="text-warning mb-1">★ 4.8 (12,543)</p>
+                                <p class="text-muted small mb-1">12,543 estudiantes • 45 horas</p>
+                                <p class="text-muted small">Intermedio • Español</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-success">€79.99</span>
+                                <a href="servicio.html" class="btn btn-primary btn-sm">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta de curso 2 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="position-relative">
+                                <img src="https://picsum.photos/400/250?random=2" class="card-img-top" alt="Curso 2">
+                                <div class="position-absolute top-0 start-0 m-2">
+                                    <span class="badge bg-danger">-40%</span>
+                                    <span class="badge bg-warning text-dark">Destacado</span>
+                                    <span class="badge bg-info text-dark">Marketing Digital</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Marketing Digital: De Principiante a Experto</h5>
+                                <p class="card-text text-muted">Por Carlos Ruiz</p>
+                                <p class="text-warning mb-1">★ 4.6 (8,750)</p>
+                                <p class="text-muted small mb-1">8,750 estudiantes • 32 horas</p>
+                                <p class="text-muted small">Principiante • Español</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-success">€59.99</span>
+                                <a href="servicio.html" class="btn btn-primary btn-sm">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta de curso 3 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="position-relative">
+                                <img src="https://picsum.photos/400/250?random=3" class="card-img-top" alt="Curso 3">
+                                <div class="position-absolute top-0 start-0 m-2">
+                                    <span class="badge bg-info text-dark">Diseño Gráfico</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Diseño Gráfico Profesional con Adobe Creative Suite</h5>
+                                <p class="card-text text-muted">Por Ana Martínez</p>
+                                <p class="text-warning mb-1">★ 4.9 (6,420)</p>
+                                <p class="text-muted small mb-1">6,420 estudiantes • 50 horas</p>
+                                <p class="text-muted small">Intermedio • Español</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-success">€89.99</span>
+                                <a href="servicio.html" class="btn btn-primary btn-sm">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Corrección: ruta local para JS -->
+    <script src="js/script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

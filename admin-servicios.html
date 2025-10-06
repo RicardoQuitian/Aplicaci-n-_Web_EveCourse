@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gestión de Servicios | EveCourse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
+                <div class="logo-icon bg-primary text-white d-flex align-items-center justify-content-center rounded-circle me-2">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <span class="text-dark">EveCourse</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill" href="cursos.html">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill active" href="admin-servicios.html">
+                            <i class="fas fa-cog me-1"></i>Admin Servicios
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <span class="navbar-text me-3" id="adminName">
+                            <i class="fas fa-user-shield"></i> Admin
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-danger btn-sm" id="btnLogout">
+                            <i class="fas fa-sign-out-alt me-1"></i> Cerrar Sesión
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container my-5">
+        <!-- ALERTA DE NO AUTORIZADO (oculta por defecto) -->
+        <div id="alertNoAuth" class="alert alert-danger d-none" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            <strong>Acceso Denegado:</strong> Solo los administradores pueden acceder a esta página.
+            <a href="index.html" class="alert-link">Volver al inicio</a>
+        </div>
+
+        <!-- PANEL DE ADMINISTRACIÓN (visible solo para admin) -->
+        <div id="adminPanel" class="d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">
+                    <i class="fas fa-list-ul me-2 text-primary"></i>
+                    Gestión de Servicios (Cursos)
+                </h2>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalServicio">
+                    <i class="fas fa-plus me-2"></i>Nuevo Servicio
+                </button>
+            </div>
+
+            <!-- TABLA DE SERVICIOS -->
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre del Curso</th>
+                                    <th>Descripción</th>
+                                    <th>Precio</th>
+                                    <th>Categoría</th>
+                                    <th>Promoción</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaServicios">
+                                <tr>
+                                    <td colspan="7" class="text-center py-5">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="visually-hidden">Cargando...</span>
+                                        </div>
+                                        <p class="mt-2 text-muted">Cargando servicios...</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PARA CREAR/EDITAR SERVICIO -->
+    <div class="modal fade" id="modalServicio" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">
+                        <i class="fas fa-plus-circle me-2"></i>Nuevo Servicio
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formServicio">
+                        <input type="hidden" id="servicioId">
+                        
+                        <div class="mb-3">
+                            <label for="nombreCurso" class="form-label">Nombre del Curso *</label>
+                            <input type="text" class="form-control" id="nombreCurso" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción *</label>
+                            <textarea class="form-control" id="descripcion" rows="3" required></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="precio" class="form-label">Precio (€) *</label>
+                                <input type="number" step="0.01" class="form-control" id="precio" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="cantidad" class="form-label">Cantidad *</label>
+                                <input type="number" class="form-control" id="cantidad" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="imagen" class="form-label">URL de Imagen</label>
+                            <input type="text" class="form-control" id="imagen" placeholder="https://ejemplo.com/imagen.jpg">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="idCategoria" class="form-label">Categoría *</label>
+                                <select class="form-select" id="idCategoria" required>
+                                    <option value="">Seleccionar...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="idPromocion" class="form-label">Promoción</label>
+                                <select class="form-select" id="idPromocion">
+                                    <option value="">Sin promoción</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <small>Los campos marcados con * son obligatorios</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btnGuardar">
+                        <i class="fas fa-save me-2"></i>Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

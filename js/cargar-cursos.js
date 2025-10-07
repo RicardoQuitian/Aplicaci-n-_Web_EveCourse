@@ -65,7 +65,7 @@ async function cargarCursosDestacados() {
             carouselInner.innerHTML += slide;
         });
 
-        console.log('✅ Cursos destacados cargados en carousel');
+        console.log('Cursos destacados cargados en carousel');
     } catch (error) {
         console.error('Error al cargar cursos destacados:', error);
     }
@@ -138,7 +138,7 @@ async function cargarTodosCursos() {
             gridCursos.innerHTML += tarjeta;
         });
 
-        console.log(`✅ ${data.length} cursos cargados en grid`);
+        console.log(`${data.length} cursos cargados en grid`);
     } catch (error) {
         console.error('Error al cargar cursos:', error);
     }
@@ -250,7 +250,7 @@ async function cargarDetalleCurso() {
             `;
         }
 
-        console.log('✅ Detalle del curso cargado');
+        console.log('Detalle del curso cargado');
     } catch (error) {
         console.error('Error al cargar detalle del curso:', error);
         alert('Error al cargar el curso. Redirigiendo...');

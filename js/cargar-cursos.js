@@ -5,6 +5,8 @@ const supabaseUrl = "https://aczbveqbxzwaygabuezx.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFjemJ2ZXFieHp3YXlnYWJ1ZXp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg0Nzk3NzAsImV4cCI6MjA3NDA1NTc3MH0.xNxsTIdnKQ2CxsYSvJH9ywE9ESAKeLaIlqe0YJsDwFs";
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+
+
 // ==============================
 // CARGAR CURSOS EN INDEX.HTML (CAROUSEL)
 // ==============================
@@ -75,6 +77,8 @@ async function cargarCursosDestacados() {
 // CARGAR CURSOS EN CURSOS.HTML (GRID)
 // ==============================
 async function cargarTodosCursos() {
+    mostrarLoader();
+
     try {
         const { data, error } = await supabase
             .from("servicio")
@@ -88,7 +92,7 @@ async function cargarTodosCursos() {
 
         if (error) throw error;
 
-        const gridCursos = document.querySelector('.row.g-4');
+        const gridCursos = document.getElementById('contenedor-cursos');
         if (!gridCursos) return;
 
         gridCursos.innerHTML = '';
@@ -100,6 +104,7 @@ async function cargarTodosCursos() {
                     <p class="text-muted">No hay cursos disponibles en este momento.</p>
                 </div>
             `;
+            ocultarLoader();
             return;
         }
 
@@ -109,7 +114,7 @@ async function cargarTodosCursos() {
             const rating = (Math.random() * 0.5 + 4.5).toFixed(1);
             const estudiantes = Math.floor(Math.random() * 10000) + 3000;
             const horas = Math.floor(Math.random() * 40) + 20;
-            
+
             const tarjeta = `
                 <div class="col-md-4">
                     <div class="card h-100 shadow-sm">
@@ -141,8 +146,20 @@ async function cargarTodosCursos() {
         console.log(`${data.length} cursos cargados en grid`);
     } catch (error) {
         console.error('Error al cargar cursos:', error);
+    } finally {
+        ocultarLoader();
     }
 }
+
+    function mostrarLoader() {
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('contenedor-cursos').style.display = 'none';
+    }
+
+    function ocultarLoader() {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('contenedor-cursos').style.display = 'flex';
+    }
 
 // ==============================
 // CARGAR DETALLE DE UN CURSO
